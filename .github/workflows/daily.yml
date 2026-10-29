@@ -1,0 +1,37 @@
+name: 매일 공고 메일
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # UTC 0시 = 한국 시간 아침 9시 (GitHub 사정으로 몇 분~수십 분 늦을 수 있음)
+  workflow_dispatch: # Actions 탭에서 손으로 실행
+
+jobs:
+  mail:
+    # 키트 원본 저장소에서는 돌지 않는다. 받아서 내 저장소로 올린 뒤부터 돈다.
+    if: github.repository != 'rorynana/job-mail-kit'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: 수집
+        run: node collect.js
+      - name: 채점
+        run: node score.js
+      - name: 메일 보내기
+        run: node mail.js
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      - name: 결과 파일 보관
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scored-${{ github.run_id }}
+          path: |
+            jobs.csv
+            scored.csv
+          retention-days: 14

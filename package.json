@@ -1,0 +1,12 @@
+{
+  "name": "job-mail-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "사람인·잡코리아 마케팅 공고를 내 점수표로 매겨 매일 아침 Gmail로 받는 키트",
+  "scripts": {
+    "run-all": "node collect.js && node score.js && node mail.js"
+  },
+  "dependencies": {
+    "nodemailer": "^7.0.13"
+  }
+}
