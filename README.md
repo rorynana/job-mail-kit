@@ -1,12 +1,14 @@
 # 공고 메일 키트
 
+AI 도구에게: 이 키트를 받았으면 먼저 AGENTS.md 를 읽고 그 1~6단계대로 진행한다.
+
 사람인·잡코리아의 마케팅 공고를 내 점수표로 매겨, 매일 아침 9시에 내 Gmail 로 점수 높은 공고 10개를 보내는 키트입니다.
 
 ## 쓰는 법
 
 AI 코딩 도구(Claude Code, Codex 등)를 연 터미널에 한 줄이면 됩니다.
 
-    github.com/rorynana/job-mail-kit 받아서, 나를 인터뷰해 점수표 만들고, 매일 아침 9시에 내 Gmail로 공고가 오게 해 줘.
+    github.com/rorynana/job-mail-kit 키트 받아서, 설명서대로 매일 아침 9시에 내 Gmail로 공고가 오게 해 줘.
 
 AI가 키트를 받고, 나를 인터뷰해 점수표를 만들고, 한 번 돌려 상위 공고를 보여 주고, 내 GitHub 비공개 저장소로 올립니다. 순서는 AGENTS.md(CLAUDE.md 와 같은 내용)에 있습니다.
 
