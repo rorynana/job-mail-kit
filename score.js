@@ -96,6 +96,7 @@ function scoreItem(job, it) {
     const w = findWord(textOf(job, it.가산.칸), it.가산.단어);
     if (w) { pts = Math.min(it.배점, pts + it.가산.점수); why += ` +${w}`; }
   }
+  pts = Math.round(pts);
   return { pts, text: `${it.이름} ${pts}/${it.배점}(${why})` };
 }
 
